@@ -1,0 +1,13 @@
+.NewsFeed {
+  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+.NewsFeedView {
+  display: flex;
+  justify-content: space-between;
+  
+}
