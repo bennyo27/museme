@@ -14,8 +14,11 @@ export const getSpotifyUser = () => {
         }
       })
       .then(response => {
-        console.log(response);
-        dispatch({ type: USER_FETCH_COMPLETE, payload: response.data });
+        let email = response.data.email;
+        let display_name = response.data.display_name;
+        let spotify_id = response.data.id;
+        let user_info = { email, display_name, spotify_id };
+        dispatch({ type: USER_FETCH_COMPLETE, payload: user_info });
       })
       .catch(err => {
         dispatch({ type: USER_FETCH_ERROR });

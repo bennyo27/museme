@@ -11,7 +11,7 @@ class Home extends Component {
     this.props.getSpotifyUser();
   }
   render() {
-    return <div>h</div>;
+    return <div>{console.log(this.props.user)}</div>;
   }
 }
 
