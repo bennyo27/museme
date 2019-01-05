@@ -3,6 +3,8 @@ import { manageSpotifyUser } from "../../store/actions/spotifyActions";
 import axios from "axios";
 import { connect } from "react-redux";
 import queryString from "query-string";
+import './Home.css';
+import NewsFeed from './NewsFeed';
 
 class Home extends Component {
   componentDidMount() {
@@ -28,3 +30,4 @@ export default connect(
     manageSpotifyUser
   }
 )(Home);
+
