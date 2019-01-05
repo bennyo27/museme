@@ -1,7 +1,10 @@
 import {
   USER_FETCH_START,
   USER_FETCH_COMPLETE,
-  USER_FETCH_ERROR
+  USER_FETCH_ERROR,
+  USER_SENT_START,
+  USER_SENT_COMPLETE,
+  USER_SENT_ERROR
 } from "../actions/spotifyActions";
 
 const initialState = {
@@ -25,6 +28,26 @@ const spotifyReducer = (state = initialState, action) => {
       };
 
     case USER_FETCH_ERROR:
+      return {
+        ...state,
+        error: "Error fetching movies"
+      };
+
+    case USER_SENT_START:
+      return {
+        ...state,
+        sendingUser: true
+      };
+
+    case USER_SENT_COMPLETE:
+      return {
+        ...state,
+        user: action.payload,
+        sendingUser: false,
+        sentUser: true
+      };
+
+    case USER_SENT_ERROR:
       return {
         ...state,
         error: "Error fetching movies"
