@@ -8,6 +8,18 @@
 }
 .NewsFeedView {
   display: flex;
-  justify-content: space-between;
-  
+  justify-content: space-evenly;
+  margin-bottom: 50px;
+}
+.Post{
+    border: 1px solid black;
+    width: 500px;
+}
+.Profile-pic{
+  margin-right: 50px;
+}
+
+.Profile-pic img{
+  height: 60px;
+  border-radius: 100%;
 }
