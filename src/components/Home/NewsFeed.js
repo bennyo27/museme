@@ -24,7 +24,6 @@ class NewsFeed extends Component {
           }
         ]
       },
-      text: ''
     };
   }
 
