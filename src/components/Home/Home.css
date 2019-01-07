@@ -1,25 +1,32 @@
-.NewsFeed {
+.newsFeed {
   border: 1px black solid;
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 50%;
+  max-width: auto;
+  width: 100%;
   margin: 0 auto;
 }
-.NewsFeedView {
+
+.news-container {
+  overflow: auto;
+  height: 400px;
+}
+
+.newsFeedView {
   display: flex;
   justify-content: space-evenly;
   margin-bottom: 50px;
 }
-.Post{
-    border: 1px solid black;
-    width: 500px;
+.post {
+  border: 1px solid black;
+  width: 500px;
 }
-.Profile-pic{
+.profile-pic {
   margin-right: 50px;
 }
 
-.Profile-pic img{
+.profile-pic img {
   height: 60px;
   border-radius: 100%;
 }
