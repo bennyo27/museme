@@ -1,39 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { getPosts } from "../../store/actions/spotifyActions";
 
 class NewsFeedForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comment: ''
-    };
-  }
-
-  handleChange = e => {
-    this.setState({
-      [e.target.name]: e.target.value
-    });
-  };
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.props.newComment(this.state);
-    this.setState({
-      comment: ''
-    });
-  };
+  state = {};
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-        <h1>
-           Post 
-        </h1>
+        <form onSubmit={this.props.handleSubmit}>
+          <h1>Post</h1>
           <input
             type="comment"
-            value={this.state.comment}
+            value={this.props.comment}
             name="comment"
-            onChange={this.handleChange}
+            onChange={this.props.handleChange}
           />
         </form>
       </div>
@@ -41,4 +22,14 @@ class NewsFeedForm extends Component {
   }
 }
 
-export default NewsFeedForm;
+// mapStateToProps
+const mapStateToProps = state => {
+  return {
+    posts: state.spotifyReducer.posts
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { getPosts }
+)(NewsFeedForm);

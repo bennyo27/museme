@@ -1,32 +1,46 @@
-import React, { Component } from 'react';
-import NewsFeedView from './NewsFeedView';
-import NewsFeedForm from './NewsFeedForm';
+import React, { Component } from "react";
+import NewsFeedView from "./NewsFeedView";
+import NewsFeedForm from "./NewsFeedForm";
+import { connect } from "react-redux";
+import { getPosts } from "../../store/actions/spotifyActions";
+import axios from "axios";
 
 class NewsFeed extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      NewsFeed: {
-        News: [
-          {
-            img:
-              ' https://content-static.upwork.com/uploads/2014/10/01073427/profilephoto1.jpg',
-            comment:
-              'Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test sTest Test Test Test Test Test Test Test Test Test Test Test Test Test Test Test'
-          },
-          {
-            img:
-              'http://profiletalent.com.au/wp-content/uploads/2017/05/profile-talent-ant-simpson-feature.jpg',
-            comment: '12'
-          },
-          {
-            comment: '34'
-          }
-        ]
-      },
-      text: ''
-    };
-  }
+  state = {
+    newsFeed: {
+      news: []
+    },
+    text: "",
+    comment: ""
+  };
+
+  // for NewsFeedForm
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    this.newComment(this.state.comment);
+    this.setState({
+      comment: ""
+    });
+    let user_spotify_id = this.props.user.spotify_id;
+    let user_display_name = this.props.user.display_name;
+    let content = this.state.comment;
+    let date = new Date();
+    let created_at = date.getTime();
+    let post = { user_spotify_id, user_display_name, content, created_at };
+    axios
+      .post(`http://localhost:8888/posts`, post)
+      .then(() => this.newsFeedHandler());
+  };
+
+  newsFeedHandler = () => {
+    this.props.getPosts();
+    this.setState({ News: this.props.posts });
+  };
 
   newComment = comment => {
     let News = [...this.state.NewsFeed.News, comment];
@@ -36,18 +50,41 @@ class NewsFeed extends Component {
     console.log(News);
   };
 
+  componentDidMount = () => {
+    this.newsFeedHandler();
+  };
+
   render() {
     return (
-      <div className="NewsFeed">
-        {this.state.NewsFeed.News.map(item => (
-          <NewsFeedView item={item} />
-        ))}
+      <div className="newsFeed">
+        <div className="news-container">
+          {this.props.posts.map(post => (
+            <NewsFeedView post={post} />
+          ))}
+        </div>
         <div>
-          <NewsFeedForm newComment={this.newComment} />
+          <NewsFeedForm
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            comment={this.state.comment}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default NewsFeed;
+// mapStateToProps
+const mapStateToProps = state => {
+  return {
+    user: state.spotifyReducer.user,
+    posts: state.spotifyReducer.posts
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {
+    getPosts
+  }
+)(NewsFeed);
