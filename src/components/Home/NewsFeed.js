@@ -43,7 +43,7 @@ class NewsFeed extends Component {
   };
 
   newComment = comment => {
-    let News = [...this.state.NewsFeed.News, comment];
+    let News = [...this.state.newsFeed.news, comment];
     this.setState({
       News
     });
