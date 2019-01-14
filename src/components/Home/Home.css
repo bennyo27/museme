@@ -8,7 +8,7 @@
   margin: 0 auto;
 }
 
-.news-container {
+#news-container {
   overflow: auto;
   height: 400px;
 }
@@ -16,10 +16,21 @@
 .newsFeedView {
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 50px;
 }
+
 .post {
-  border: 1px solid black;
+  display: flex;
+}
+
+.post-info {
+  border-top: 0.1px solid black;
+  text-align: left;
+}
+
+.post-display_name {
+}
+
+.post-content {
   width: 500px;
 }
 .profile-pic {

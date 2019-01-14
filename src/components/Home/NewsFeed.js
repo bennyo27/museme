@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import NewsFeedView from "./NewsFeedView";
 import NewsFeedForm from "./NewsFeedForm";
 import { connect } from "react-redux";
-import { getPosts } from "../../store/actions/spotifyActions";
+import { getPosts } from "../../store/actions/postsActions";
 import axios from "axios";
 
 class NewsFeed extends Component {
@@ -35,6 +35,9 @@ class NewsFeed extends Component {
     axios
       .post(`http://localhost:8888/posts`, post)
       .then(() => this.newsFeedHandler());
+    document.getElementById(
+      "news-container"
+    ).scrollTop = document.getElementById("news-container").scrollHeight;
   };
 
   newsFeedHandler = () => {
@@ -52,12 +55,15 @@ class NewsFeed extends Component {
 
   componentDidMount = () => {
     this.newsFeedHandler();
+    document.getElementById(
+      "news-container"
+    ).scrollTop = document.getElementById("news-container").scrollHeight;
   };
 
   render() {
     return (
       <div className="newsFeed">
-        <div className="news-container">
+        <div id="news-container">
           {this.props.posts.map(post => (
             <NewsFeedView post={post} />
           ))}
@@ -78,7 +84,7 @@ class NewsFeed extends Component {
 const mapStateToProps = state => {
   return {
     user: state.spotifyReducer.user,
-    posts: state.spotifyReducer.posts
+    posts: state.postsReducer.posts
   };
 };
 

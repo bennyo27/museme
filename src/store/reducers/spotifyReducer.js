@@ -1,15 +1,13 @@
 import {
   USER_FETCH_START,
   USER_FETCH_COMPLETE,
-  USER_FETCH_ERROR,
-  POSTS_FETCH_START,
-  POSTS_FETCH_COMPLETE,
-  POSTS_FETCH_ERROR
+  USER_FETCH_ERROR
 } from "../actions/spotifyActions";
 
 const initialState = {
   user: {},
-  posts: []
+  fetchingUser: false,
+  fetchedUser: false
 };
 
 const spotifyReducer = (state = initialState, action) => {
@@ -31,27 +29,7 @@ const spotifyReducer = (state = initialState, action) => {
     case USER_FETCH_ERROR:
       return {
         ...state,
-        error: "Error fetching movies"
-      };
-
-    case POSTS_FETCH_START:
-      return {
-        ...state,
-        sendingUser: true
-      };
-
-    case POSTS_FETCH_COMPLETE:
-      return {
-        ...state,
-        posts: action.payload,
-        sendingUser: false,
-        sentUser: true
-      };
-
-    case POSTS_FETCH_ERROR:
-      return {
-        ...state,
-        error: "Error fetching movies"
+        error: "Error fetching user"
       };
 
     default:

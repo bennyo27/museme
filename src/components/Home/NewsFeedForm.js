@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPosts } from "../../store/actions/spotifyActions";
+import { getPosts } from "../../store/actions/postsActions";
 
 class NewsFeedForm extends Component {
   state = {};
@@ -25,7 +25,7 @@ class NewsFeedForm extends Component {
 // mapStateToProps
 const mapStateToProps = state => {
   return {
-    posts: state.spotifyReducer.posts
+    posts: state.postsReducer.posts
   };
 };
 

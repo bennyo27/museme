@@ -4,10 +4,6 @@ export const USER_FETCH_START = "USER_FETCH_START";
 export const USER_FETCH_COMPLETE = "USER_FETCH_COMPLETE";
 export const USER_FETCH_ERROR = "USER_FETCH_ERROR";
 
-export const POSTS_FETCH_START = "POSTS_FETCH_START";
-export const POSTS_FETCH_COMPLETE = "POSTS_FETCH_COMPLETE";
-export const POSTS_FETCH_ERROR = "POSTS_FETCH_ERROR";
-
 // user is fetched from spotify, then if user exists new user is posted otherwise return user profile from db
 export const manageSpotifyUser = () => {
   var user_info = {};
@@ -28,8 +24,9 @@ export const manageSpotifyUser = () => {
       .then(() => {
         axios.post("http://localhost:8888/users", user_info).then(() => {
           axios
-            .get(`http://localhost:8888/users/${user_info.spotify_id}`)
+            .get(`http://localhost:8888/users/${user_info.display_name}`)
             .then(res => {
+              console.log(res.data);
               let db_info = res.data[0];
               dispatch({ type: USER_FETCH_COMPLETE, payload: db_info });
             });
@@ -37,21 +34,6 @@ export const manageSpotifyUser = () => {
       })
       .catch(err => {
         dispatch({ type: USER_FETCH_ERROR });
-      });
-  };
-};
-
-export const getPosts = () => {
-  return dispatch => {
-    dispatch({ type: POSTS_FETCH_START });
-    axios
-      .get("http://localhost:8888/posts")
-      .then(res => {
-        console.log(res.data);
-        dispatch({ type: POSTS_FETCH_COMPLETE, payload: res.data });
-      })
-      .catch(err => {
-        dispatch({ type: POSTS_FETCH_ERROR });
       });
   };
 };

@@ -5,12 +5,19 @@ class NewsFeedView extends Component {
 
   render() {
     return (
-      <div>
-        <div className="newsFeedView">
+      <div className="newsFeedView">
+        <div className="post">
           <div className="profile-pic">
             <img />
           </div>
-          <div className="post">{this.props.post.content}</div>
+          <div className="post-info">
+            <div className="post-display_name">
+              <h3>{this.props.post.user_display_name}</h3>
+            </div>
+            <div className="post-content">
+              <p>{this.props.post.content}</p>
+            </div>
+          </div>
         </div>
       </div>
     );
