@@ -1,0 +1,43 @@
+.newsFeed {
+  border: 1px black solid;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: auto;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#news-container {
+  overflow: auto;
+  height: 400px;
+}
+
+.newsFeedView {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.post {
+  display: flex;
+}
+
+.post-info {
+  border-top: 0.1px solid black;
+  text-align: left;
+}
+
+.post-display_name {
+}
+
+.post-content {
+  width: 500px;
+}
+.profile-pic {
+  margin-right: 50px;
+}
+
+.profile-pic img {
+  height: 60px;
+  border-radius: 100%;
+}
