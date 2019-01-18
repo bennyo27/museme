@@ -27,7 +27,7 @@ const postsReducer = (state = initialState, action) => {
     case POSTS_FETCH_ERROR:
       return {
         ...state,
-        error: "Error fetching movies"
+        error: "Error fetching posts"
       };
 
     default:

@@ -41,7 +41,7 @@ class NewsFeed extends Component {
   };
 
   newsFeedHandler = () => {
-    this.props.getPosts();
+    this.props.getPosts(this.props.user.display_name);
     this.setState({ News: this.props.posts });
   };
 
