@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   width: 100%;
+  background-color: black;
 }
 
 .App-logo {
@@ -23,7 +24,44 @@
   color: #61dafb;
 }
 
-.App-body{
+.App-body {
   display: flex;
-  align-items: baseline;
+  height: 100%;
+}
+
+/* ------------- CSS for Sidebar ------------- */
+.logo {
+  height: 95px;
+  margin-bottom: 100px;
+}
+
+.sidebar {
+  background-color: rgb(46, 44, 44);
+  height: 100%;
+  width: 350px;
+}
+
+.sidebar ul {
+  margin-top: 130px;
+  padding-left: 20px;
+}
+
+.sidebar-links {
+  padding-left: 45px;
+}
+
+.sidebar ul li {
+  list-style-type: none;
+}
+
+.sidebar ul li a {
+  line-height: 3.5em;
+  font-size: 1.6em;
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.sidebar ul li a:hover {
+  color: #5ccded;
 }

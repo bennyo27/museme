@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { searchUsers } from "../../store/actions/usersActions";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Follow.css";
 
 class Follow extends Component {
   state = {
@@ -26,17 +27,23 @@ class Follow extends Component {
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      <div className="follow-container">
+        <div className="follow-title">
           <h1>Follow</h1>
-          <h3>Search for people to follow here.</h3>
-          <input
-            type="search"
-            placeholder="Search"
-            value={this.state.search}
-            name="search"
-            onChange={this.handleChange}
-          />
+        </div>
+        <form className="follow-form" onSubmit={this.handleSubmit}>
+          <div className="follow-text">
+            <h3>Search for people to follow here</h3>
+          </div>
+          <div className="follow-input">
+            <input
+              type="search"
+              placeholder="Search"
+              value={this.state.search}
+              name="search"
+              onChange={this.handleChange}
+            />
+          </div>
         </form>
         <div className="resultDisplay">
           {this.props.users.map(user => {

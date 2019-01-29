@@ -7,14 +7,14 @@ class NewsFeedForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="form-container">
         <form onSubmit={this.props.handleSubmit}>
-          <h1>Post</h1>
           <input
             type="comment"
             value={this.props.comment}
             name="comment"
             onChange={this.props.handleChange}
+            placeholder="Message here.."
           />
         </form>
       </div>

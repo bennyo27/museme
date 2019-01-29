@@ -13,9 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App-body">
-        <div className="sidebar">
-          <Sidebar />
-        </div>
+        <Sidebar />
         <div className="App">
           <Route exact path="/" component={Home} />
           <Route path="/profile" component={Profile} />

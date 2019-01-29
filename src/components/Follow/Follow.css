@@ -1,0 +1,27 @@
+.follow-container {
+  height: auto;
+  margin-top: -54px;
+}
+
+.follow-title {
+  height: auto;
+}
+
+.follow-title h1 {
+  text-align: left;
+  font-size: 5em;
+  padding-left: 15px;
+  color: white;
+}
+
+.follow-form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.follow-form h3 {
+  font-size: 1.7em;
+  padding-left: 15px;
+  color: white;
+}

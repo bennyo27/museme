@@ -68,13 +68,11 @@ class NewsFeed extends Component {
             <NewsFeedView post={post} />
           ))}
         </div>
-        <div>
-          <NewsFeedForm
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-            comment={this.state.comment}
-          />
-        </div>
+        <NewsFeedForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          comment={this.state.comment}
+        />
       </div>
     );
   }
