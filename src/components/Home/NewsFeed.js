@@ -28,10 +28,17 @@ class NewsFeed extends Component {
     });
     let user_spotify_id = this.props.user.spotify_id;
     let user_display_name = this.props.user.display_name;
+    let user_image = this.props.user.image;
     let content = this.state.comment;
     let date = new Date();
     let created_at = date.getTime();
-    let post = { user_spotify_id, user_display_name, content, created_at };
+    let post = {
+      user_spotify_id,
+      user_display_name,
+      user_image,
+      content,
+      created_at
+    };
     axios
       .post(`http://localhost:8888/posts`, post)
       .then(() => this.newsFeedHandler());

@@ -8,7 +8,7 @@ class Profile extends Component {
       <div className="profile-container">
         <div className="profile-header">
           <div className="profile-picture">
-            <img />
+            <img src={this.props.user.image} />
           </div>
           <div className="profile-name">
             <h1>{this.props.user.display_name}</h1>

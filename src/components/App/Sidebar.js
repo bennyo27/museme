@@ -31,6 +31,9 @@ class Sidebar extends Component {
               )}
             </li>
             <li>
+              <Link to="/">Feed</Link>
+            </li>
+            <li>
               <Link to="/profile">Profile</Link>
             </li>
             <li>

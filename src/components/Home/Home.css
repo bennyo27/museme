@@ -45,12 +45,16 @@
   width: 500px;
 }
 .profile-pic {
-  margin-right: 50px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .profile-pic img {
-  height: 60px;
   border-radius: 100%;
+  height: 50px;
+  width: 50px;
+  margin-top: 20px;
+  object-fit: cover;
 }
 
 .form-container {

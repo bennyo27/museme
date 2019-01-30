@@ -8,7 +8,7 @@ class NewsFeedView extends Component {
       <div className="newsFeedView">
         <div className="post">
           <div className="profile-pic">
-            <img />
+            <img src={this.props.post.user_image} />
           </div>
           <div className="post-info">
             <div className="post-display_name">

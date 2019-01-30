@@ -19,7 +19,13 @@ export const manageSpotifyUser = () => {
         let email = res.data.email;
         let display_name = res.data.display_name;
         let spotify_id = res.data.id;
-        user_info = { email, display_name, spotify_id };
+        let image;
+        if (res.data.images.length != 0) {
+          image = res.data.images[0].url;
+        } else {
+          image = "https://www.drupal.org/files/issues/default-avatar.png";
+        }
+        user_info = { email, display_name, spotify_id, image };
       })
       .then(() => {
         axios.post("http://localhost:8888/users", user_info).then(() => {

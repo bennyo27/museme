@@ -1,7 +1,7 @@
 .App {
   text-align: center;
   width: 100%;
-  background-color: black;
+  background-color: rgb(39, 39, 39);
 }
 
 .App-logo {
@@ -63,5 +63,5 @@
 }
 
 .sidebar ul li a:hover {
-  color: #5ccded;
+  color: #32d9c7;
 }

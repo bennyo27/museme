@@ -1,0 +1,27 @@
+.profile-container {
+  display: flex;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.profile-header {
+  display: flex;
+}
+
+.profile-picture {
+  margin-right: 30px;
+}
+
+.profile-picture img {
+  border-radius: 100%;
+  height: 200px;
+  width: 200px;
+  margin-top: 20px;
+  object-fit: cover;
+}
+
+.profile-name {
+  color: white;
+  font-size: 2.5em;
+  text-align: left;
+}
