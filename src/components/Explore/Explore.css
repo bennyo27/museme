@@ -1,0 +1,42 @@
+.explore-container {
+  padding-left: 15px;
+  margin-top: -54px;
+}
+
+.explore-title h1 {
+  color: white;
+  text-align: left;
+  font-size: 5em;
+}
+
+.explore-latest-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.explore-subtitle h2 {
+  text-align: left;
+  font-size: 3em;
+  color: white;
+}
+
+.explore-latest-releases {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1600px;
+  flex-wrap: wrap;
+}
+
+.album {
+  width: 200px;
+  padding: 10px;
+}
+
+.album-image img {
+  height: 170px;
+}
+
+.album-info {
+  color: white;
+}
